@@ -1,0 +1,13 @@
+<div class="p-2 border-l border-zinc-500">
+    <p>{{ comment.content }}</p>
+    {% if comment.has_children %}
+        <button
+            class="text-xs rounded-lg ml-2 px-2 py-1 text-blue-500 hover:text-blue-600 hover:bg-zinc-800/50 active:bg-zinc-800"
+            hx-get="/replies/{{ comment.id }}"
+            hx-target="this"
+            hx-swap="outerHTML"
+        >
+            Load replies
+        </button>
+    {% endif %}
+</div>

@@ -1,0 +1,12 @@
+<section>
+    <div>
+        <h1>{{ post.title }}</h1>
+        <p>
+            {{ post.content }}
+        </p>
+        <footer>{{ post.likes }} Likes</footer>
+    </div>
+    <div id="comments-{{ post.id }}" class="-ml-4">
+        {% include "components/comments.html" %}
+    </div>
+</section>

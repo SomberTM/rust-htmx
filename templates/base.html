@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter" />
+    <style>
+      body {
+        font-family: 'Inter', serif;
+      }
+    </style>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <title>
+      {% block title %}{{ title }}{% endblock %} - Site
+    </title>
+    {% block head %}{% endblock %}
+  </head>
+  <body class="bg-zinc-900 text-white flex flex-col min-h-[100dvh]">
+    <nav class="border-b border-zinc-500 py-4 p-8 sm:px-16 md:px-24 lg:px-32">
+      <a href="/posts" class="hover:bg-zinc-700/50 active:bg-zinc-700 rounded-lg transition-all duration-300 px-4 py-2">
+        <button>Posts</button>
+      </a>
+    </nav>
+    <main id="main" class="grow mx-16 sm:mx-32 md:mx-48 lg:mx-64 py-8 md:px-8 px-4 border-l border-r border-zinc-500">
+      {% block main %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
