@@ -3,7 +3,11 @@ pub mod posts;
 pub mod styles;
 
 use askama::Template;
-use axum::{response::IntoResponse, routing::get, Router};
+use axum::{
+    response::IntoResponse,
+    routing::{get, post},
+    Router,
+};
 use sqlx::{postgres::PgPoolOptions, PgPool};
 use styles::styles;
 
@@ -41,6 +45,8 @@ async fn main() {
         .route("/posts", get(posts::page))
         .route("/posts/:post_id", get(posts::post::page))
         .route("/replies/:parent_id", get(posts::post::replies))
+        .route("/reply/:comment_id", post(posts::post::post_reply))
+        .route("/reply-form/:comment_id", get(posts::post::reply_form))
         .with_state(state);
 
     let address: &str = "0.0.0.0:3000";

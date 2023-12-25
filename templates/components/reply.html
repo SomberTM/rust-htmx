@@ -1,0 +1,15 @@
+<form
+    class="flex flex-col gap-1 ml-2 max-w-sm"
+>
+    <textarea class="px-2 py-1 bg-transparent border border-zinc-500 text-white" name="content"></textarea>
+    <button 
+        hx-post="/reply/{{ comment_id }}" 
+        hx-target="#replies-{{ comment_id }}"
+        hx-trigger="click"
+        hx-ext='json-enc'
+        hx-swap="outerHTML"
+        class="hover:bg-zinc-700/50 w-fit active:bg-zinc-700 rounded-lg transition-all duration-300 px-4 py-2"
+    >
+        Post
+    </button>
+</form>
